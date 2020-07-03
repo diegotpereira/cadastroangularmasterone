@@ -11,13 +11,14 @@
                      <th>Deletar</th>
                    </tr>
                </thead>
-               <tbody>  
-                 <tr>
-                     <td>Macoratti</td>
-                     <td>macoratti@yahoo.com</td>
-                     <td>(11) 8850-2500</td>
-                     <td><button class="btn btn-danger">Deletar</button></td>
-                 </tr>
+               <tbody>
+                <tr *ngFor = "let c of clientes">
+                    <td>{{c.nome}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.telefone}}</td>
+                         <td><button class="btn btn-danger">Deletar</button></td>
+                </tr>
+                
                </tbody>
            </table>
        </div>
