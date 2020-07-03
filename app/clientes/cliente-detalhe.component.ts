@@ -7,7 +7,16 @@ import { ClienteService } from './cliente.service';
 @Component({
     moduleId: module.id,
     selector : 'cliente-detalhe',
-    templateUrl : 'cliente-detalhe.component.html'
+    templateUrl : 'cliente-detalhe.component.html',
+
+    styles: [`
+    .ng-valid[required] {
+        border: 2px solid blue;
+    }
+    .ng-invalid:not(form) {
+        border: 2px solid red;
+    }
+`]
 })
 export class ClienteDetalheComponent  implements OnInit{
     cliente : Cliente;
