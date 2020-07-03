@@ -3,7 +3,7 @@ import { Cliente } from './cliente.model';
 import { CLIENTES } from './cliente.mock';
 @Injectable()
 export class ClienteService{
-    getClientes() : Cliente[]  {
-        return CLIENTES;
+    getClientes() : Promise<Cliente[]>  {
+        return Promise.resolve(CLIENTES);
     }
 }

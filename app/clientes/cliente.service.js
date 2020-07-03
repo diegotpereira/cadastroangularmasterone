@@ -12,7 +12,7 @@ var ClienteService = /** @class */ (function () {
     function ClienteService() {
     }
     ClienteService.prototype.getClientes = function () {
-        return cliente_mock_1.CLIENTES;
+        return Promise.resolve(cliente_mock_1.CLIENTES);
     };
     ClienteService = __decorate([
         core_1.Injectable()
