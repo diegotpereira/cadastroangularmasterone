@@ -6,4 +6,8 @@ export class ClienteService{
     getClientes() : Promise<Cliente[]>  {
         return Promise.resolve(CLIENTES);
     }
+    getCliente(id:number): Promise<Cliente> {
+        return this.getClientes()
+        .then((clientes: Cliente[]) => clientes.find(cliente => cliente.id === id)); 
+       }
 }

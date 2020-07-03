@@ -11,6 +11,9 @@ export class ClientesListaComponent implements OnInit {
     clientes : Cliente[] ;
     constructor(private clienteService : ClienteService){}
     ngOnInit() : void {
-        this.clientes = this.clienteService.getClientes();
+        this.clienteService.getClientes()
+        .then((clientes : Cliente[]) => {
+            this.clientes = clientes;
+        }).catch(err => console.log(err));
      }
 }

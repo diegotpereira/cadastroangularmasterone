@@ -16,7 +16,11 @@ var ClientesListaComponent = /** @class */ (function () {
         this.clienteService = clienteService;
     }
     ClientesListaComponent.prototype.ngOnInit = function () {
-        this.clientes = this.clienteService.getClientes();
+        var _this = this;
+        this.clienteService.getClientes()
+            .then(function (clientes) {
+            _this.clientes = clientes;
+        }).catch(function (err) { return console.log(err); });
     };
     ClientesListaComponent = __decorate([
         core_1.Component({

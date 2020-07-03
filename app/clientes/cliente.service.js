@@ -14,6 +14,10 @@ var ClienteService = /** @class */ (function () {
     ClienteService.prototype.getClientes = function () {
         return Promise.resolve(cliente_mock_1.CLIENTES);
     };
+    ClienteService.prototype.getCliente = function (id) {
+        return this.getClientes()
+            .then(function (clientes) { return clientes.find(function (cliente) { return cliente.id === id; }); });
+    };
     ClienteService = __decorate([
         core_1.Injectable()
     ], ClienteService);
