@@ -9,45 +9,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var dialogconfirm_service_1 = require("./../dialogconfirm.service");
-var core_1 = require("@angular/core");
-var cliente_service_1 = require("./cliente.service");
-var ClientesListaComponent = /** @class */ (function () {
-    function ClientesListaComponent(clienteService, dialogconfirmService) {
+const dialogconfirm_service_1 = require("./../dialogconfirm.service");
+const core_1 = require("@angular/core");
+const cliente_service_1 = require("./cliente.service");
+let ClientesListaComponent = class ClientesListaComponent {
+    constructor(clienteService, dialogconfirmService) {
         this.clienteService = clienteService;
         this.dialogconfirmService = dialogconfirmService;
     }
-    ClientesListaComponent.prototype.ngOnInit = function () {
-        var _this = this;
+    ngOnInit() {
         this.clienteService.getClientes()
-            .then(function (clientes) {
-            _this.clientes = clientes;
-        }).catch(function (err) { return console.log(err); });
-    };
-    ClientesListaComponent.prototype.onDelete = function (cliente) {
-        var _this = this;
+            .then((clientes) => {
+            this.clientes = clientes;
+        }).catch(err => console.log(err));
+    }
+    onDelete(cliente) {
         this.dialogconfirmService.confirm('Deseja excluir o cliente ' + cliente.nome + ' ?')
-            .then(function (podeDeletar) {
+            .then((podeDeletar) => {
             if (podeDeletar) {
-                _this.clienteService
+                this.clienteService
                     .delete(cliente)
-                    .then(function () {
-                    _this.clientes = _this.clientes.filter(function (c) { return c.id != cliente.id; });
-                }).catch(function (err) {
+                    .then(() => {
+                    this.clientes = this.clientes.filter((c) => c.id != cliente.id);
+                }).catch(err => {
                     console.log(err);
                 });
             }
         });
-    };
-    ClientesListaComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'clientes-lista',
-            templateUrl: 'clientes-lista.component.html'
-        }),
-        __metadata("design:paramtypes", [cliente_service_1.ClienteService, dialogconfirm_service_1.DialogConfirmService])
-    ], ClientesListaComponent);
-    return ClientesListaComponent;
-}());
+    }
+};
+ClientesListaComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'clientes-lista',
+        templateUrl: 'clientes-lista.component.html'
+    }),
+    __metadata("design:paramtypes", [cliente_service_1.ClienteService, dialogconfirm_service_1.DialogConfirmService])
+], ClientesListaComponent);
 exports.ClientesListaComponent = ClientesListaComponent;
 //# sourceMappingURL=clientes-lista.component.js.map

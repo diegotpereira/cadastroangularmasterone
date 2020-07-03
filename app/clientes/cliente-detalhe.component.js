@@ -9,53 +9,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var common_1 = require("@angular/common");
-var cliente_model_1 = require("./cliente.model");
-var cliente_service_1 = require("./cliente.service");
-var ClienteDetalheComponent = /** @class */ (function () {
-    function ClienteDetalheComponent(clienteService, route, location) {
+const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
+const common_1 = require("@angular/common");
+const cliente_model_1 = require("./cliente.model");
+const cliente_service_1 = require("./cliente.service");
+let ClienteDetalheComponent = class ClienteDetalheComponent {
+    constructor(clienteService, route, location) {
         this.clienteService = clienteService;
         this.route = route;
         this.location = location;
         //estamos incluindo um novo cliente
         this.isNovo = true;
     }
-    ClienteDetalheComponent.prototype.ngOnInit = function () {
-        var _this = this;
+    ngOnInit() {
         this.cliente = new cliente_model_1.Cliente(0, '', '', '');
-        this.route.params.forEach(function (params) {
-            var id = +params['id'];
+        this.route.params.forEach((params) => {
+            let id = +params['id'];
             if (id) {
                 //se o id do cliente existe então estamos alterando
-                _this.isNovo = false;
-                _this.clienteService.getCliente(id)
-                    .then(function (cliente) {
+                this.isNovo = false;
+                this.clienteService.getCliente(id)
+                    .then((cliente) => {
                     console.log(cliente);
-                    _this.cliente = cliente;
+                    this.cliente = cliente;
                 });
             }
         });
-    };
-    ClienteDetalheComponent.prototype.getFormGroupClass = function (isValid, isPristine) {
+    }
+    getFormGroupClass(isValid, isPristine) {
         return {
             'form-group': true,
             'has-danger': !isValid && !isPristine,
             'has-success': isValid && !isPristine
         };
-    };
-    ClienteDetalheComponent.prototype.getFormControlClass = function (isValid, isPristine) {
+    }
+    getFormControlClass(isValid, isPristine) {
         return {
             'form-control': true,
             'has-danger': !isValid && !isPristine,
             'has-success': isValid && !isPristine
         };
-    };
+    }
     // será executado quando o formulário for submetido
-    ClienteDetalheComponent.prototype.onSubmit = function () {
-        var _this = this;
-        var promise;
+    onSubmit() {
+        let promise;
         if (this.isNovo) {
             console.log('cadastrar');
             promise = this.clienteService.create(this.cliente);
@@ -64,19 +62,18 @@ var ClienteDetalheComponent = /** @class */ (function () {
             console.log('alterar');
             promise = this.clienteService.update(this.cliente);
         }
-        promise.then(function (cliente) { return _this.location.back(); });
-    };
-    ClienteDetalheComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'cliente-detalhe',
-            templateUrl: 'cliente-detalhe.component.html'
-        }),
-        __metadata("design:paramtypes", [cliente_service_1.ClienteService,
-            router_1.ActivatedRoute,
-            common_1.Location])
-    ], ClienteDetalheComponent);
-    return ClienteDetalheComponent;
-}());
+        promise.then(cliente => this.location.back());
+    }
+};
+ClienteDetalheComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'cliente-detalhe',
+        templateUrl: 'cliente-detalhe.component.html'
+    }),
+    __metadata("design:paramtypes", [cliente_service_1.ClienteService,
+        router_1.ActivatedRoute,
+        common_1.Location])
+], ClienteDetalheComponent);
 exports.ClienteDetalheComponent = ClienteDetalheComponent;
 //# sourceMappingURL=cliente-detalhe.component.js.map
