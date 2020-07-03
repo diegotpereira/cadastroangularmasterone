@@ -50,6 +50,14 @@ var ClienteService = /** @class */ (function () {
             .then(function () { return cliente; })
             .catch(this.trataErro);
     };
+    ClienteService.prototype.delete = function (cliente) {
+        var url = this.clientesUrl + "/" + cliente.id; //app/cliente/:id
+        return this.http
+            .delete(url, { headers: this.headers })
+            .toPromise()
+            .then(function () { return cliente; })
+            .catch(this.trataErro);
+    };
     ClienteService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

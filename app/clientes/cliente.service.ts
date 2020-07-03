@@ -3,6 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Cliente } from './cliente.model';
 import { CLIENTES } from './cliente.mock';
+
 @Injectable()
 export class ClienteService{
    // app é a pasta de onde fizermos a chamada
@@ -41,5 +42,13 @@ export class ClienteService{
         .toPromise()
         .then(() => cliente as Cliente)  
         .catch(this.trataErro);
-    }   
+    } 
+    delete(cliente: Cliente): Promise<Cliente> {
+        const url = `${this.clientesUrl}/${cliente.id}`; //app/cliente/:id
+        return this.http
+        .delete(url, {headers:this.headers})
+        .toPromise()
+        .then(() => cliente as Cliente)  
+        .catch(this.trataErro);
+    }  
 }
