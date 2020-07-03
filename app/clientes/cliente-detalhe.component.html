@@ -3,15 +3,21 @@
     <form>
         <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" placeholder="Informe o nome" [value]="cliente.nome">
+            <input type="text" class="form-control" placeholder="Informe o nome"  name="nome"
+            [ngModel]="cliente.nome"
+            (ngModelChange)="cliente.nome = $event">
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="Informe o email" [value]="cliente.email">
+            <input type="email" class="form-control" placeholder="Informe o email" name="email"
+            [ngModel]="cliente.email"
+            (ngModelChange)="cliente.email = $event">
         </div>
         <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input type="text" class="form-control" placeholder="Informe o telefone" [value]="cliente.telefone">
+            <input type="text" class="form-control" placeholder="Informe o telefone" name="telefone"
+            [ngModel]="cliente.telefone"
+            (ngModelChange)="cliente.telefone = $event">
         </div>
         <button type="submit" class="btn btn-success">Salvar</button>
          <a class="btn btn-secondary" routerLink="/">Voltar </a>

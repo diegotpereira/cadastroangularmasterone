@@ -12,6 +12,7 @@ var clientes_lista_component_1 = require("./clientes-lista.component");
 var cliente_detalhe_component_1 = require("./cliente-detalhe.component");
 var cliente_routing_module_1 = require("./cliente-routing.module");
 var cliente_service_1 = require("./cliente.service");
+var forms_1 = require("@angular/forms");
 var ClientesModule = /** @class */ (function () {
     function ClientesModule() {
     }
@@ -19,7 +20,8 @@ var ClientesModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
-                cliente_routing_module_1.ClienteRoutingModule
+                cliente_routing_module_1.ClienteRoutingModule,
+                forms_1.FormsModule
             ],
             declarations: [
                 clientes_lista_component_1.ClientesListaComponent,
