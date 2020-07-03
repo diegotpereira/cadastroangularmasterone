@@ -7,12 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var clientes_mock_1 = require("./clientes-mock");
+var cliente_mock_1 = require("./cliente.mock");
 var ClienteService = /** @class */ (function () {
     function ClienteService() {
     }
     ClienteService.prototype.getClientes = function () {
-        return clientes_mock_1.CLIENTES;
+        return cliente_mock_1.CLIENTES;
     };
     ClienteService = __decorate([
         core_1.Injectable()

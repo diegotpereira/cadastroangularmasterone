@@ -11,6 +11,7 @@ var common_1 = require("@angular/common");
 var clientes_lista_component_1 = require("./clientes-lista.component");
 var cliente_detalhe_component_1 = require("./cliente-detalhe.component");
 var cliente_routing_module_1 = require("./cliente-routing.module");
+var cliente_service_1 = require("./cliente.service");
 var ClientesModule = /** @class */ (function () {
     function ClientesModule() {
     }
@@ -24,7 +25,10 @@ var ClientesModule = /** @class */ (function () {
                 clientes_lista_component_1.ClientesListaComponent,
                 cliente_detalhe_component_1.ClienteDetalheComponent
             ],
-            exports: [clientes_lista_component_1.ClientesListaComponent]
+            exports: [clientes_lista_component_1.ClientesListaComponent],
+            providers: [
+                cliente_service_1.ClienteService
+            ]
         })
     ], ClientesModule);
     return ClientesModule;
