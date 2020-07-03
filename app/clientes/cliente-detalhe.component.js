@@ -54,12 +54,17 @@ var ClienteDetalheComponent = /** @class */ (function () {
     };
     // será executado quando o formulário for submetido
     ClienteDetalheComponent.prototype.onSubmit = function () {
+        var _this = this;
+        var promise;
         if (this.isNovo) {
             console.log('cadastrar');
+            promise = this.clienteService.create(this.cliente);
         }
         else {
             console.log('alterar');
+            promise = this.clienteService.update(this.cliente);
         }
+        promise.then(function (cliente) { return _this.location.back(); });
     };
     ClienteDetalheComponent = __decorate([
         core_1.Component({

@@ -48,10 +48,14 @@ export class ClienteDetalheComponent implements OnInit  {
     }
     // será executado quando o formulário for submetido
     onSubmit() : void {
+        let promise;
         if (this.isNovo) {
             console.log('cadastrar');
+            promise = this.clienteService.create(this.cliente);
         } else {
             console.log('alterar');
+            promise = this.clienteService.update(this.cliente);
         }
+        promise.then(cliente=> this.location.back());
     }
 }

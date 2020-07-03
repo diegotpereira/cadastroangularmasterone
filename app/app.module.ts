@@ -4,8 +4,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule} from './app-routing.module';
 import { ClientesModule } from './clientes/clientes.module';
 import { HttpModule } from '@angular/http';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 @NgModule({
-    imports : [AppRoutingModule, BrowserModule, ClientesModule, HttpModule],
+    imports : [AppRoutingModule, BrowserModule, ClientesModule, HttpModule, InMemoryWebApiModule.forRoot(InMemoryDataService)],
     declarations :[AppComponent],
     bootstrap: [AppComponent]
 })

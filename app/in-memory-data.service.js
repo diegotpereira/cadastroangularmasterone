@@ -11,7 +11,7 @@ var InMemoryDataService = /** @class */ (function () {
             { id: 4, nome: 'Paola Fernandes', email: 'paolafernand@hotmail.com', telefone: '(13) 8987-5555' },
             { id: 5, nome: 'Amelia Souza', email: 'amelia@bol.com.br', telefone: '(11) 9808-7777' }
         ];
-        return { clientes: clientes };
+        return { clientes1: clientes };
     };
     return InMemoryDataService;
 }());
