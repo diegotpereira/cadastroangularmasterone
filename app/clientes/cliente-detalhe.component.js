@@ -12,18 +12,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
+var cliente_model_1 = require("./cliente.model");
 var cliente_service_1 = require("./cliente.service");
 var ClienteDetalheComponent = /** @class */ (function () {
     function ClienteDetalheComponent(clienteService, route, location) {
         this.clienteService = clienteService;
         this.route = route;
         this.location = location;
+        //estamos incluindo um novo cliente
+        this.isNovo = true;
     }
     ClienteDetalheComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.cliente = new cliente_model_1.Cliente(0, '', '', '');
         this.route.params.forEach(function (params) {
             var id = +params['id'];
             if (id) {
+                //se o id do cliente existe então estamos alterando
+                _this.isNovo = false;
                 _this.clienteService.getCliente(id)
                     .then(function (cliente) {
                     console.log(cliente);
@@ -31,6 +37,29 @@ var ClienteDetalheComponent = /** @class */ (function () {
                 });
             }
         });
+    };
+    ClienteDetalheComponent.prototype.getFormGroupClass = function (isValid, isPristine) {
+        return {
+            'form-group': true,
+            'has-danger': !isValid && !isPristine,
+            'has-success': isValid && !isPristine
+        };
+    };
+    ClienteDetalheComponent.prototype.getFormControlClass = function (isValid, isPristine) {
+        return {
+            'form-control': true,
+            'has-danger': !isValid && !isPristine,
+            'has-success': isValid && !isPristine
+        };
+    };
+    // será executado quando o formulário for submetido
+    ClienteDetalheComponent.prototype.onSubmit = function () {
+        if (this.isNovo) {
+            console.log('cadastrar');
+        }
+        else {
+            console.log('alterar');
+        }
     };
     ClienteDetalheComponent = __decorate([
         core_1.Component({
