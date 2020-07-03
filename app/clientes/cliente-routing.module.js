@@ -7,27 +7,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var common_1 = require("@angular/common");
+var router_1 = require("@angular/router");
 var clientes_lista_component_1 = require("./clientes-lista.component");
 var cliente_detalhe_component_1 = require("./cliente-detalhe.component");
-var cliente_routing_module_1 = require("./cliente-routing.module");
-var ClientesModule = /** @class */ (function () {
-    function ClientesModule() {
+var clienteRoutes = [
+    {
+        path: 'cliente',
+        component: clientes_lista_component_1.ClientesListaComponent
+    },
+    {
+        path: 'cliente/salvar',
+        component: cliente_detalhe_component_1.ClienteDetalheComponent
     }
-    ClientesModule = __decorate([
+];
+var ClienteRoutingModule = /** @class */ (function () {
+    function ClienteRoutingModule() {
+    }
+    ClienteRoutingModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule,
-                cliente_routing_module_1.ClienteRoutingModule
+                router_1.RouterModule.forChild(clienteRoutes)
             ],
-            declarations: [
-                clientes_lista_component_1.ClientesListaComponent,
-                cliente_detalhe_component_1.ClienteDetalheComponent
-            ],
-            exports: [clientes_lista_component_1.ClientesListaComponent]
+            exports: [router_1.RouterModule]
         })
-    ], ClientesModule);
-    return ClientesModule;
+    ], ClienteRoutingModule);
+    return ClienteRoutingModule;
 }());
-exports.ClientesModule = ClientesModule;
-//# sourceMappingURL=clientes.module.js.map
+exports.ClienteRoutingModule = ClienteRoutingModule;
+//# sourceMappingURL=cliente-routing.module.js.map
