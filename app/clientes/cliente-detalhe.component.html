@@ -1,25 +1,19 @@
 <div class="container"> 
     <h2>Salvar Cliente</h2>
-    <form>
+    <form #clienteForm="ngForm">
         <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" placeholder="Informe o nome"  name="nome"
-            [ngModel]="cliente.nome"
-            (ngModelChange)="cliente.nome = $event">
+            <input type="text" class="form-control" placeholder="Informe o nome"  required name="nome" [(ngModel)]="cliente.nome" >
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="Informe o email" name="email"
-            [ngModel]="cliente.email"
-            (ngModelChange)="cliente.email = $event">
+            <input type="email" class="form-control" placeholder="Informe o email"  required name="email" [(ngModel)]="cliente.email" >
         </div>
         <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input type="text" class="form-control" placeholder="Informe o telefone" name="telefone"
-            [ngModel]="cliente.telefone"
-            (ngModelChange)="cliente.telefone = $event">
+            <input type="text" class="form-control" placeholder="Informe o telefone" name="telefone"  required name="telefone" [(ngModel)]="cliente.telefone"  >
         </div>
-        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!clienteForm.form.valid">Salvar</button>
          <a class="btn btn-secondary" routerLink="/">Voltar </a>
     </form>
     </div>
