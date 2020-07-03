@@ -18,6 +18,10 @@ var clienteRoutes = [
     {
         path: 'cliente/salvar',
         component: cliente_detalhe_component_1.ClienteDetalheComponent
+    },
+    {
+        path: 'cliente/salvar/:id',
+        component: cliente_detalhe_component_1.ClienteDetalheComponent
     }
 ];
 var ClienteRoutingModule = /** @class */ (function () {

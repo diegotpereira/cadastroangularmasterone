@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router'
 import { ClientesListaComponent} from './clientes-lista.component'
 import { ClienteDetalheComponent} from './cliente-detalhe.component'
+
 const clienteRoutes: Routes =[
   {
       path : 'cliente',
@@ -10,8 +11,13 @@ const clienteRoutes: Routes =[
   {
       path : 'cliente/salvar',
       component: ClienteDetalheComponent
+  },
+  {
+      path : 'cliente/salvar/:id',
+      component: ClienteDetalheComponent
   }
 ]
+
 @NgModule({
     imports: [
         RouterModule.forChild(clienteRoutes)
