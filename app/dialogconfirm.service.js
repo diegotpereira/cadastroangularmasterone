@@ -6,16 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-let DialogConfirmService = class DialogConfirmService {
-    confirm(message) {
-        return new Promise(resolve => {
+var core_1 = require("@angular/core");
+var DialogConfirmService = /** @class */ (function () {
+    function DialogConfirmService() {
+    }
+    DialogConfirmService.prototype.confirm = function (message) {
+        return new Promise(function (resolve) {
             return resolve(window.confirm(message || 'Confirma ?'));
         });
-    }
-};
-DialogConfirmService = __decorate([
-    core_1.Injectable()
-], DialogConfirmService);
+    };
+    DialogConfirmService = __decorate([
+        core_1.Injectable()
+    ], DialogConfirmService);
+    return DialogConfirmService;
+}());
 exports.DialogConfirmService = DialogConfirmService;
 //# sourceMappingURL=dialogconfirm.service.js.map

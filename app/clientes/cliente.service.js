@@ -9,59 +9,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const http_1 = require("@angular/http");
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
-let ClienteService = class ClienteService {
-    constructor(http) {
+var ClienteService = /** @class */ (function () {
+    function ClienteService(http) {
         this.http = http;
         // app é a pasta de onde fizermos a chamada
         // clientes é o nome da variável na classe InMemoryDataService
         this.clientesUrl = 'app/clientes';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
-    getClientes() {
+    ClienteService.prototype.getClientes = function () {
         return this.http.get(this.clientesUrl)
             .toPromise()
-            .then(response => response.json().data)
+            .then(function (response) { return response.json().data; })
             .catch(this.trataErro);
-    }
-    trataErro(err) {
+    };
+    ClienteService.prototype.trataErro = function (err) {
         return Promise.reject(err.message || err);
-    }
-    getCliente(id) {
+    };
+    ClienteService.prototype.getCliente = function (id) {
         return this.getClientes()
-            .then((clientes) => clientes.find(cliente => cliente.id === id));
-    }
-    create(cliente) {
+            .then(function (clientes) { return clientes.find(function (cliente) { return cliente.id === id; }); });
+    };
+    ClienteService.prototype.create = function (cliente) {
         return this.http.post(this.clientesUrl, JSON.stringify(cliente), { headers: this.headers })
             .toPromise()
-            .then((response) => {
+            .then(function (response) {
             console.log(response.json().data);
             return response.json().data;
         })
             .catch(this.trataErro);
-    }
-    update(cliente) {
-        const url = `${this.clientesUrl}/${cliente.id}`; //app/cliente/:id
+    };
+    ClienteService.prototype.update = function (cliente) {
+        var url = this.clientesUrl + "/" + cliente.id; //app/cliente/:id
         return this.http
             .put(url, JSON.stringify(cliente), { headers: this.headers })
             .toPromise()
-            .then(() => cliente)
+            .then(function () { return cliente; })
             .catch(this.trataErro);
-    }
-    delete(cliente) {
-        const url = `${this.clientesUrl}/${cliente.id}`; //app/cliente/:id
+    };
+    ClienteService.prototype.delete = function (cliente) {
+        var url = this.clientesUrl + "/" + cliente.id; //app/cliente/:id
         return this.http
             .delete(url, { headers: this.headers })
             .toPromise()
-            .then(() => cliente)
+            .then(function () { return cliente; })
             .catch(this.trataErro);
-    }
-};
-ClienteService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], ClienteService);
+    };
+    ClienteService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], ClienteService);
+    return ClienteService;
+}());
 exports.ClienteService = ClienteService;
 //# sourceMappingURL=cliente.service.js.map

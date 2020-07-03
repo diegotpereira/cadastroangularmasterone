@@ -6,31 +6,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const common_1 = require("@angular/common");
-const clientes_lista_component_1 = require("./clientes-lista.component");
-const cliente_detalhe_component_1 = require("./cliente-detalhe.component");
-const cliente_routing_module_1 = require("./cliente-routing.module");
-const cliente_service_1 = require("./cliente.service");
-const forms_1 = require("@angular/forms");
-let ClientesModule = class ClientesModule {
-};
-ClientesModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            common_1.CommonModule,
-            cliente_routing_module_1.ClienteRoutingModule,
-            forms_1.FormsModule
-        ],
-        declarations: [
-            clientes_lista_component_1.ClientesListaComponent,
-            cliente_detalhe_component_1.ClienteDetalheComponent
-        ],
-        exports: [clientes_lista_component_1.ClientesListaComponent],
-        providers: [
-            cliente_service_1.ClienteService
-        ]
-    })
-], ClientesModule);
+var core_1 = require("@angular/core");
+var common_1 = require("@angular/common");
+var clientes_lista_component_1 = require("./clientes-lista.component");
+var cliente_detalhe_component_1 = require("./cliente-detalhe.component");
+var cliente_routing_module_1 = require("./cliente-routing.module");
+var cliente_service_1 = require("./cliente.service");
+var forms_1 = require("@angular/forms");
+var ClientesModule = /** @class */ (function () {
+    function ClientesModule() {
+    }
+    ClientesModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                cliente_routing_module_1.ClienteRoutingModule,
+                forms_1.FormsModule
+            ],
+            declarations: [
+                clientes_lista_component_1.ClientesListaComponent,
+                cliente_detalhe_component_1.ClienteDetalheComponent
+            ],
+            exports: [clientes_lista_component_1.ClientesListaComponent],
+            providers: [
+                cliente_service_1.ClienteService
+            ]
+        })
+    ], ClientesModule);
+    return ClientesModule;
+}());
 exports.ClientesModule = ClientesModule;
 //# sourceMappingURL=clientes.module.js.map
