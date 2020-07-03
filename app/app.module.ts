@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { AppRoutingModule} from './app-routing.module';
 import { ClientesModule } from './clientes/clientes.module';
 @NgModule({
-    imports : [BrowserModule, ClientesModule],
+    imports : [AppRoutingModule, BrowserModule, ClientesModule],
     declarations :[AppComponent],
     bootstrap: [AppComponent]
 })
