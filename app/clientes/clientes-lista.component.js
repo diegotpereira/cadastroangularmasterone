@@ -7,10 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var cliente_mock_1 = require("./cliente.mock");
 var ClientesListaComponent = /** @class */ (function () {
     function ClientesListaComponent() {
-        this.clientes = cliente_mock_1.CLIENTES;
     }
     ClientesListaComponent = __decorate([
         core_1.Component({

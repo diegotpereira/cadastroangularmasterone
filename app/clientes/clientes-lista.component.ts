@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { CLIENTES } from './cliente.mock';
+
 import { Cliente } from './cliente.model';
 
 @Component({
@@ -9,5 +9,5 @@ import { Cliente } from './cliente.model';
 })
 export class ClientesListaComponent {
 
-    clientes : Cliente[] = CLIENTES ;
+    clientes : Cliente[] ;
 }

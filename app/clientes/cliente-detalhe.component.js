@@ -12,6 +12,7 @@ var ClienteDetalheComponent = /** @class */ (function () {
     }
     ClienteDetalheComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'cliente-detalhe',
             templateUrl: 'cliente-detalhe.component.html'
         })
