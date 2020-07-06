@@ -39,13 +39,6 @@ export class ClienteDetalheComponent implements OnInit  {
             'has-success': isValid && !isPristine
         };
     }
-    getFormControlClass(isValid : boolean, isPristine: boolean) : {} {
-        return {
-            'form-control' : true,
-            'has-danger': !isValid && !isPristine,
-            'has-success': isValid && !isPristine
-        };
-    }
     // será executado quando o formulário for submetido
     onSubmit() : void {
         let promise;

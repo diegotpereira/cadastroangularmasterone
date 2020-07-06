@@ -45,13 +45,6 @@ var ClienteDetalheComponent = /** @class */ (function () {
             'has-success': isValid && !isPristine
         };
     };
-    ClienteDetalheComponent.prototype.getFormControlClass = function (isValid, isPristine) {
-        return {
-            'form-control': true,
-            'has-danger': !isValid && !isPristine,
-            'has-success': isValid && !isPristine
-        };
-    };
     // será executado quando o formulário for submetido
     ClienteDetalheComponent.prototype.onSubmit = function () {
         var _this = this;

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Cliente } from './cliente.model';
-import { CLIENTES } from './cliente.mock';
+
 
 @Injectable()
 export class ClienteService{
@@ -22,10 +22,11 @@ export class ClienteService{
     private trataErro(err : any) : Promise<any> {
         return Promise.reject(err.message || err );
       }
-    getCliente(id:number): Promise<Cliente> {
-           return this.getClientes()
-           .then((clientes: Cliente[]) => clientes.find(cliente => cliente.id === id)); 
-    }
+      getCliente(id:number): Promise<Cliente> {
+        return this.getClientes()
+        .then((clientes: Cliente[]) => clientes.find(cliente => cliente.id === id)); 
+       }
+   
     create(cliente: Cliente): Promise<Cliente> {
         return this.http.post(this.clientesUrl, JSON.stringify(cliente), {headers:this.headers})
         .toPromise()
